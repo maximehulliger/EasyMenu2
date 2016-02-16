@@ -8,4 +8,6 @@ $(function() {
 	
 	//once index has finished loadings
 	controller.loadlist();
+	 $("root").load("view/home_view.html"); 
+alert("sdasd");
 });

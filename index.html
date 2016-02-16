@@ -8,20 +8,26 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-
+	<style>
+	#header {
+		background-color:orange;
+		opacity:0.5;
+		color:white;
+		padding:5px;
+	}
+	#box {
+    width: 400px;
+	height: 300px;
+    padding: 10px;
+    border: 10px solid navy;
+    margin: 50px;
+}
+</style>
   </head>
   <body>
 	<div class="container">
-		<h1>Easy Menu 2</h1>
-		<div id="exampleView">
-			<div>
-				Number of guests: <span id="numberOfGuests"></span>
-			</div>
-			<div>
-          <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-			</div>
-		</div>
+		<div id="header"><h1>Easy Menu 2</h1></div>
+		<div id="root">My HTML include will go here.</div>
 	</div>
 
     <!-- jQuery -->
