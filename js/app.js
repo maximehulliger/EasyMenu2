@@ -4,6 +4,6 @@ $(function() {
 	
 	//And create the needed controllers and views
 	var exampleView = new ExampleView($("#exampleView"));
-	 $("root").load("view/home_view.html"); 
-alert("sdasd");
+	 $("#root").load("view/home_view.html"); 
+//alert("sdasd");
 });
