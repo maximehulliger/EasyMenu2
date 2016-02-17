@@ -1,67 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dinner planner</title>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Dinner planner</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-	<style>
-	#header {
-		background-color:orange;
-		opacity:0.5;
-		color:white;
-		padding:5px;
-	}
-	#box {
-		position: fixed;
-		width: 250px;
-		height: 400px;
-		border: 3px 
-		solid #EE872A;
-		padding:10px;
-	}
-	#main{
-		height:600px;
-		padding:10px;
-		border-radius:1px;
-		border:3px 
-		solid #EE872A;
-		font-size:120%;"
-	}
-</style>
-  </head>
-  <body>
-	<div class="container">
-		<div id="header"><h1>Easy Menu 2</h1></div>
-		<!--
-		<div id="root">My HTML include will go here.</div>
-	</div>
-	-->
-		<div id="main"> 
-			<div><h2>Select Dish</h2><hr>
-				<form action="action_page.php">
-					<input placeholder="Enter key words">
-					<input type="submit">
-						<select name="cars";>
-							<option value="Volvo">Main</option>
-							<option value="saab">Shrimps</option>
-						</select>
-					<input type="submit">
-				</form>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+	</head>
+	<body>
+		<div class="container">
+			<div id="header"><h1>Easy Menu 2</h1></div>
+			<div id="root"> 
+				My HTML include will go here.
 			</div>
 		</div>
-	</div>
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
-	<!-- The application JavaScript code -->
-	<script src="js/app.js"></script>
-	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
-  </body>
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+		<!-- The application JavaScript code -->
+		<script src="js/model/dinnerModel.js"></script>
+		<script src="js/view/exampleView.js"></script>
+		<script src="js/controller.js"></script>
+		<script src="js/app.js"></script>
+	</body>
 </html>
