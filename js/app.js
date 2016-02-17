@@ -7,7 +7,7 @@ $(function() {
 	var controller = new Controller($("#root"));
 	
 	//once index has finished loadings
-	controller.loadlist();
+	//controller.loadlist();
 	
-	$("#root").load("view/home_view.html");
+	//$("#root").load("view/home_view.html");
 });
