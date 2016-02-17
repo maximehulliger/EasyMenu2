@@ -1,5 +1,5 @@
 //ExampleView Object constructor
-var ExampleView = function (container) {
+var CostView = function (container, model) {
 	
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
