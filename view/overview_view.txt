@@ -1,0 +1,2 @@
+		<text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</text>
+		<button type="button">Click Me!</button>

@@ -1,4 +1,5 @@
 $(function() {
+
 	var model = new DinnerModel();
 	
 	this.init = function() {
@@ -6,5 +7,5 @@ $(function() {
 		var homeViewController = new HomeViewController($("#root"),model);
 	}
 	
-	$("#root").load("view/home_view.html",this.init);
+	$("#root").load("view/home_view.html",this.init); //overview_view
 });
