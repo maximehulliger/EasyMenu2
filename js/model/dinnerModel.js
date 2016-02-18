@@ -1,7 +1,7 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
 	var guestCount = 1;
-	var selectedDish = {};
+	var selectedDish;
 	var menus = [];
 	
 	this.currency = 'SEK';

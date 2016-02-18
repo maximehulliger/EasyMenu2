@@ -8,9 +8,8 @@ var CostViewController = function (container, model) {
 	
 	function costRowPending(dish) {
 		if (dish === undefined)
-			return "";
+			return costRow("pending", 0);
 		else {
-			alert(dish);
 			var cost = dish.ingredients.map(function(i){return i.price;}.reduce(function(a, b){return a+b;}));
 			return costRow("pending", cost);
 		}
@@ -20,19 +19,20 @@ var CostViewController = function (container, model) {
 		return costRow(dish.name, cost);
 	}
 	function costRow(name, cost) {
-		return "<tr><td>"+name+"</td><td align='right'>"+menu.currency+" "+cost+"</td></tr>";
+		return "<tr><td>"+name+"</td><td align='right'>"+model.currency+" "+cost+"</td></tr>";
 	}
 	
 	// set the guest count in the view
 	function setGuestCount(n) {
-		while (costTable.children().length > 1) {
-			costTable.children()[0].remove();  					TODO TODO
+			
+		while (costTable.children().children().length > 1) {
+			costTable.children().children().last().remove();
 			//costTable.removeChild();
 		}
 		model.getFullMenu().forEach( function(dish) {
 			costTable.append( costRowDish(dish) );
 		})
-		//costTable.append( costRowPending(model.getSelectedDish()) );
+		costTable.append( costRowPending(model.getSelectedDish()) );
 		
 		costTotal.html(model.currency + " " + model.getTotalMenuPrice() );
 	}
