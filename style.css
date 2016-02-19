@@ -40,3 +40,15 @@
 .over p {
 	color:red;
 }
+
+.instr img {
+	width:128px;
+	height:128px;
+	padding:3px;
+	border:3px solid black;
+	margin:10px
+}
+
+.instr p,h2,h4 {
+	margin:5px;
+}
