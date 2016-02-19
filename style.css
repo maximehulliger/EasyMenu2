@@ -4,6 +4,13 @@
 	color:white;
 	padding:5px;
 }
+#cost {
+	width: 250px;
+	height: 600px;
+	border: 3px solid #EE872A;
+	padding:10px;
+	/* overflow:hidden; */
+}
 #box {
 	width: 550px;
 	height: 250px;
@@ -20,4 +27,16 @@
 }
 .beta td {
 	padding:15px;
+}
+.selec button {
+	cursor: pointer; 
+	cursor: hand;
+}
+.selec img {
+	width:128px;
+	height:128px;
+	padding:10px;
+}
+.over p {
+	color:red;
 }

@@ -7,5 +7,5 @@ $(function() {
 		var homeViewController = new HomeViewController($("#root"),model);
 	}
 	
-	$("#root").load("view/home_view.html",this.init); //overview_view
+	$("#root").load("view/overview_view.html",this.init); //overview_view
 });
