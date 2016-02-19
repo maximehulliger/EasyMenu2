@@ -48,8 +48,8 @@ var CostViewController = function (container, model) {
 	});
 	$('#confirmDinnerButton').on('click', function() { 
 		container = $('#root');
-		container.load('view/instruction_view.html', function() {
-			InstructionView(container, model);
+		container.load('view/overview_view.html', function() {
+			OverviewView(container, model);
 		})
 	});
 }

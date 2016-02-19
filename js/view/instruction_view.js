@@ -4,7 +4,7 @@ var InstructionView = function (container, model) {
 	intructionTable.children().remove();
 	
 	model.menu.forEach( function(dish) {
-		selectionTable.append(row$('<tr>')
+		intructionTable.append($('<tr>')
 			.append($('<td>')
 				.attr('align', 'left')
 				.attr('style', "width:30%")
@@ -12,14 +12,7 @@ var InstructionView = function (container, model) {
 					.text(dish.name)
 				).append($('<img>')
 					.attr('src', 'images/'+dish.image)
-				)
-					.append($('<h2>')
-						.text(dish.name)
-					).append($('<img>')
-						.attr('src', 'images/'+dish.image)
-						.attr('title', dish.name)
-						.text(dish.name)
-					).append($('<br>')
+				).append($('<br>')
 				)
 			).append($('<td>')
 				.attr('align', 'left')
@@ -27,11 +20,18 @@ var InstructionView = function (container, model) {
 				.append($('<br>')
 				).append($('<h4>')
 					.text('Preparation')
-				).append$('<p>')
+				).append($('<p>')
 					.text(dish.description)
-				)append($('<br>')
+				).append($('<br>')
 				)
 			)
 		)
+	});
+	
+	$('#goBackButton').on('click', function() { 
+		container = $('#root');
+		container.load('view/overview_view.html', function() {
+			OverviewView(container, model);
+		})
 	});
 }
