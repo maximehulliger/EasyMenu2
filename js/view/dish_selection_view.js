@@ -1,42 +1,24 @@
 var DishSelectionView = function (container, model) {
 	
-	dishSelectionTable
 	var filterInput = container.find("#dishFilterInput");
-	//var selectionButton = container.find("#dishSelectionButton");
 	var typeInput = container.find("#typeSelectionInput");
 	var selectionTable = container.find("#dishSelectionTable");
 	
-	
-	this.that = this;
-	
-	function costRowPending(dish) {
-		if (dish === undefined)
-			return costRow("Pending", 0);
-		else {
-			var cost = dish.ingredients.map(function(i){return i.price;}.reduce(function(a, b){return a+b;}));
-			return costRow("Pending", cost);
-		}
-	}
-	function costRowDish(dish) {
-		var cost = dish.ingredients.map(function(i){return i.price;}.reduce(function(a, b){return a+b;}));
-		return costRow(dish.name, cost);
-	}
-	function costRow(name, cost) {
-		return "<tr><td>"+name+"</td><td align='right'>"+cost+"</td></tr>";
-	}
-	
-	function formatCell4Dish(cell, dish) {
+	gotoDetail = function(mealId) {
+		model.setSelectedDish(mealId);
+		container.load('view/dish_confirm_view.html', function() {
+			dishConfirmView(container, model);
+			dishConfirmViewController(container, model);
+		});
+		alert(mealId);
 		
-	}
+	};
 	
 	// set the guest count in the view
 	function displayDishes(type, filter) {
-		selectionTable.children().children().remove();
-		
-		
+		selectionTable.find('tbody').children().remove();
 		
 		var dishPerRow = 5;
-		
 		
 		model.getAllDishes(type, filter).each( function(index, dish) {
 			if (index % dishPerRow == 0) {
@@ -45,10 +27,17 @@ var DishSelectionView = function (container, model) {
 			}
 				
 			row.append($('<td>')
-						.append($('<img>')
-							.attr('src', 'images/'+dish.image)
-							.attr('title', dish.name)
-							.text(dish.name)
+						.attr('align', 'center')
+						.append($('<button>')
+							.attr('onclick', 'gotoDetail('+dish.id+')')
+							.append($('<h2>')
+								.text(dish.name)
+							).append($('<img>')
+								.attr('src', 'images/'+dish.image)
+								.attr('title', dish.name)
+								.text(dish.name)
+							).append($('<br>')
+							)
 						)
 					)
 		});
@@ -59,4 +48,5 @@ var DishSelectionView = function (container, model) {
 	}
 	filterInput.on('input', updateChoice);
 	typeInput.on('change', updateChoice);
+	updateChoice();
 }

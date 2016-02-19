@@ -1,4 +1,4 @@
-var HomeViewController = function (container, model) {
+var dishConfirmViewController = function (container, model) {
 	
 	this.loadSelectionView = function() {
 		container.load("view/dual_view.html", function() {

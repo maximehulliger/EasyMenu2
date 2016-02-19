@@ -1,8 +1,8 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
 	var guestCount = 1;
-	var selectedDish;
-	var menus = [];
+	var selectedDishId;
+	this.menu = [];
 	
 	this.currency = 'SEK';
  
@@ -18,15 +18,19 @@ var DinnerModel = function() {
 	this.getNumberOfGuests = function() {
 		return guestCount;
 	}
+	
+	this.setSelectedDish = function(id) {
+		selectedDishId = id;
+	};
 
 	//Returns the dish that is on the menu for selected type 
-	this.getSelectedDish = function(type) {
-		return selectedDish;
+	this.getSelectedDish = function() {
+		return this.getDish(selectedDish);
 	}
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		return menus;
+		return menu;
 	}
 
 	// Returns all ingredients for all the dishes on the menu.
