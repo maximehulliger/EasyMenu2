@@ -46,4 +46,10 @@ var CostViewController = function (container, model) {
 		model.setNumberOfGuests(n);
 		setGuestCount(n);
 	});
+	$('#confirmDinnerButton').on('click', function() { 
+		container = $('#root');
+		container.load('view/instruction_view.html', function() {
+			InstructionView(container, model);
+		})
+	});
 }
