@@ -1,10 +1,9 @@
-var CostViewController = function (container, model) {
+var DishSelectionViewController = function (container, model) {
 	
 	var guestCountInput = container.find("#guestCountInput");
 	var costTable = container.find("#costResumeTable");
 	var costTotal = container.find("#costResumeTotal");
 	
-	this.that = this;
 	
 	function costRowPending(dish) {
 		if (dish === undefined)
@@ -19,7 +18,7 @@ var CostViewController = function (container, model) {
 		return costRow(dish.name, cost);
 	}
 	function costRow(name, cost) {
-		return "<tr><td>"+name+"</td><td align='right'>"+cost.toFixed(2)+"</td></tr>";
+		return "<tr><td>"+name+"</td><td align='right'>"+cost+"</td></tr>";
 	}
 	
 	// set the guest count in the view
@@ -34,12 +33,7 @@ var CostViewController = function (container, model) {
 		})
 		costTable.append( costRowPending(model.getSelectedDish()) );
 		
-		costTotal.html(model.currency + " " + model.getTotalMenuPrice().toFixed(2) );
+		costTotal.html(model.currency + " " + model.getTotalMenuPrice() );
 	}
 	
-	$('#guestCountInput').on('input', function() { 
-		var n = $(this).val();
-		model.setNumberOfGuests(n);
-		setGuestCount(n);
-	});
 }

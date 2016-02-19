@@ -1,16 +1,16 @@
 <div id="view">
 	<div><h2>Select Dish</h2><hr>
 		<form action="action_page.php">
-			<input placeholder="Enter key words">
-			<input type="submit">
-				<select name="cars";>
-					<option value="Volvo">Main</option>
-					<option value="saab">Shrimps</option>
-				</select>
+			<input id="dishFilterInput" placeholder="Enter key words">
+			<select id="typeSelectionInput">
+				<option value="starter">Starter</option>
+				<option value="main dish">Main</option>
+				<option value="dessert">Dessert</option>
+			</select>
 		</form>
 		<hr>
-	<table style="">
-		<td style="">
+	<table id="dishSelectionTable">
+		<td>
 			<div type="button" style="cursor: pointer; cursor: hand;" onclick="alert()"></button>
 			<h2>Lasagne</h2>
 			<img src="images/bakedbrie.jpg" alt="HTML5 Icon" style="width:128px;height:128px;">
