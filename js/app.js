@@ -9,5 +9,5 @@ $(function() {
 	//once index has finished loadings
 	//controller.loadlist();
 	
-	$("#root").load("view/overview_view.html");
+	$("#root").load("view/home_view.html");
 });
