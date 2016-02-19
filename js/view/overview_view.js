@@ -3,6 +3,7 @@ var DishSelectionView = function (container, model) {
 	var filterInput = container.find("#dishFilterInput");
 	var typeInput = container.find("#typeSelectionInput");
 	var selectionTable = container.find("#dishSelectionTable");
+	var costTotal = container.find("#costResumeTotal");
 	
 	function displayDishes(type, filter) {
 		selectionTable.find('tbody').children().remove();
@@ -26,7 +27,9 @@ var DishSelectionView = function (container, model) {
 		}
 		row.append($('<td>')
 			.attr('align', 'left')
-			attr('<totalcost>')
+			costTotal = model.getTotalMenuPrice()+' '+model.currency;
+			.text(costTotal)
+			
 			)
 		.append($(('<tr>'))
 			.append($('<hr>')
@@ -38,6 +41,6 @@ var DishSelectionView = function (container, model) {
 					)
 					)	
 		)
-		
+		this.getTotalMenuPrice()
 		
 						
