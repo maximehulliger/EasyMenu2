@@ -47,7 +47,8 @@ var DishSelectionView = function (container, model) {
 			row.append($('<td>')
 						.append($('<img>')
 							.attr('src', 'images/'+dish.image)
-							.text(dish.name);
+							.attr('title', dish.name)
+							.text(dish.name)
 						)
 					)
 		});
