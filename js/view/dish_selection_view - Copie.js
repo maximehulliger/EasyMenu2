@@ -34,7 +34,7 @@ var DishSelectionView = function (container, model) {
 								.attr('src', 'images/'+dish.image)
 								.attr('title', dish.name)
 								.text(dish.name)
-							).append($('<hr>')
+							).append($('<br>')
 							)
 						)
 					)

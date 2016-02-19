@@ -19,25 +19,35 @@ var DinnerModel = function() {
 		return guestCount;
 	}
 	
+	this.dropSelectedDish = function() {
+		selectedDishId = undefined;
+	}
+	
 	this.setSelectedDish = function(id) {
 		selectedDishId = id;
 	};
-
-	//Returns the dish that is on the menu for selected type 
-	this.getSelectedDish = function() {
-		return this.getDish(selectedDish);
+	
+	// add the selected dish to menu
+	this.addSelectedDish = function() {
+		this.addDishToMenu(selectedDishId);
+		this.dropSelectedDish();
 	}
 
+	//> Returns the dish that is on the menu for selected type 
+	this.getSelectedDish = function() {
+		return this.getDish(selectedDishId);
+	}
+	
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		return menu;
+		return this.menu;
 	}
 
 	// Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
 		ingredients = [];
-		menus.forEach(function(menu) {
-			ingredients.push(menu.ingredients);
+		this.menu.forEach(function(dish) {
+			ingredients = ingredients.concat(dish.ingredients);
 		});
 		return ingredients;
 	}
@@ -55,15 +65,15 @@ var DinnerModel = function() {
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		removeDishFromMenu(id);
-		menus.push( dishes.find(function(e) {return e.id == id}) );
+		this.removeDishFromMenu(id);
+		this.menu.push( dishes.find(function(e) {return e.id == id}) );
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		idx = menus.findIndex(function(e) {return e.id == id});
-		if (idx !== undefined)
-			menus.splice(idx,1);
+		idx = this.menu.findIndex(function(e) {return e.id == id});
+		if (idx !== -1)
+			this.menu.splice(idx,1);
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -96,7 +106,6 @@ var DinnerModel = function() {
 			}
 		}
 	}
-
 
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,

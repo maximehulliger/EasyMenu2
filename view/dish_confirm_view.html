@@ -1,18 +1,18 @@
 <div id="view">
 	<table><tr>
 		<td style="width:50%">
-			<h2>Lasagne</h2>
-			<img id ="imgId" src="images/bakedbrie.jpg" style="width:128px;height:128px;">
+			<h2 id ="dishName" >Lasagne</h2>
+			<img id ="imgId" src="images/bakedbrie.jpg" style="width:128px;height:128px;"></img>
 			<br>
-			<button type="button">back to Select Dish</button>
+			<button id="goBackButton">back to Select Dish</button>
 			<h2>Preperation</h2>
 			<p id="mealPrep">put meal description here! Maxime</p>
 		</td>
 		<td style="width:50%">
 			<div style="height:100%;padding: 10px;border: 2px solid black;margin: 10px;">
-				<p><b>Ingredients for 4 people</b></p>
-				<hr>
-				<table id="ingredientList" style="width:100%"><tbody>
+				<p><b id="listTitle">Ingredients for 4 people</b></p>
+				<hr></hr>
+				<table id="ingredientTable" style="width:100%"><tbody>
 					<tr>
 						<td>2 tbsp</td>
 						<td>olive oil</td>
@@ -20,9 +20,9 @@
 						<td align="right">0.20</td>
 					</tr>
 				</tbody></table>
-				<hr>
-				<button type="button">Confirm Dish</button>
-				<div align="right">SEK 0.00</div>
+				<hr></hr>
+				<button id="confirmDishButton">Confirm Dish</button>
+				<div id="pendingIngrTotal" align="right">SEK 0.00</div>
 			</div>	
 		</td>
 	</tr></table>
