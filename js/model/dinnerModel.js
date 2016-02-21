@@ -3,15 +3,31 @@ var DinnerModel = function() {
 	var guestCount = 1;
 	var selectedDishId;
 	this.menu = [];
-	
 	this.currency = 'SEK';
+	var listener = [];
+	
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
-
+	
+	this.subscribe = function(obj) {
+		listener.push(obj);
+	}
+	
+	this.clearSubscriber = function() {
+		listener.clear();
+	}
+	
+	var notifySubscribers = function() {
+		listener.forEach(function(l) { 
+			l.update();
+		});
+		
+	}
 
 	this.setNumberOfGuests = function(num) {
 		guestCount = num;
+		notifySubscribers();
 	}
 
 	// should return 
@@ -21,16 +37,19 @@ var DinnerModel = function() {
 	
 	this.dropSelectedDish = function() {
 		selectedDishId = undefined;
+		notifySubscribers();
 	}
 	
 	this.setSelectedDish = function(id) {
 		selectedDishId = id;
+		notifySubscribers();
 	};
 	
 	// add the selected dish to menu
 	this.addSelectedDish = function() {
 		this.addDishToMenu(selectedDishId);
 		this.dropSelectedDish();
+		notifySubscribers();
 	}
 
 	//> Returns the dish that is on the menu for selected type 
@@ -67,13 +86,16 @@ var DinnerModel = function() {
 	this.addDishToMenu = function(id) {
 		this.removeDishFromMenu(id);
 		this.menu.push( dishes.find(function(e) {return e.id == id}) );
+		notifySubscribers();
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		idx = this.menu.findIndex(function(e) {return e.id == id});
-		if (idx !== -1)
+		if (idx !== -1) {
 			this.menu.splice(idx,1);
+			notifySubscribers();
+		}
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")

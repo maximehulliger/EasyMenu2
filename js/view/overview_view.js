@@ -2,22 +2,13 @@ var OverviewView = function (container, model) {
 	
 	var selectionTable = container.find("#menuResumeTable");
 	var costTotal = container.find("#costResumeTotal");
-	var preparationButton = container.find("#preparationButton");
 	
-	preparationButton.on('click', function() {
-		container = $('#root');
-		container.load('view/instruction_view.html', function() {
-			InstructionView(container, model);
-		})
+	$("#preparationButton").on('click', function() {
+		gotoInstruction();
 	});
 	
 	$('#goBackButton').on('click', function() {
-		container.load("view/dual_view.html", function() {
-		var leftCon = $('#leftContent');
-		var rightCon = $('#rightContent');
-		leftCon.load("view/cost_view.html", function() {CostViewController(leftCon,model);});
-		rightCon.load("view/dish_selection_view.html", function() {DishSelectionView(rightCon,model);DishSelectionViewController(rightCon,model);});
-		});
+		gotoSelection();
 	});
 	
 	selectionTable.find('tbody').children().remove();

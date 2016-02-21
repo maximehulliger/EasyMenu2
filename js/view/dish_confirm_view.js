@@ -3,27 +3,24 @@ var dishConfirmView = function (container, model) {
 	var dishName = $('#dishName');
 	var preparationText = $('#mealPrep');
 	var image = $('#imgId');
-	
+
 	var listTitle = $('#listTitle');
 	var ingrTable = $('#ingredientTable');
-	var confirmDishButton = $('#confirmDishButton');
-	var goBackButton = $('#goBackButton');
 	var total = $('#pendingIngrTotal');
 	
-	var goBack = function() {
-		var rightCon = $('#rightContent');
-		rightCon.load("view/dish_selection_view.html", function() {DishSelectionView(rightCon,model);DishSelectionViewController(rightCon,model);});
-		model.dropSelectedDish();
-	};
-	
 	var dish = model.getSelectedDish();
-	dishName.text(dish.name);
-	preparationText.text(dish.description);
-	image.attr('src', 'images/'+dish.image);
-	goBackButton.on('click', goBack);
 	
-	function update() {
+	function init() {
+		dishName.text(dish.name);
+		preparationText.text(dish.description);
+		image.attr('src', 'images/'+dish.image);
+		
+		this.update();
+	}
+	
+	this.update = function() {
 		var n = model.getNumberOfGuests();
+		
 		listTitle.text('Ingredients for '+n+' people')
 		
 		var tbody = ingrTable.find('tbody');
@@ -42,10 +39,6 @@ var dishConfirmView = function (container, model) {
 		total.text(model.currency+" "+totPrice.toFixed(2));
 	}
 	
-	confirmDishButton.on('click', function() {
-		model.addSelectedDish();
-		goBack();
-	});
-	
-	update();
+	model.subscribe(this);
+	init();
 }

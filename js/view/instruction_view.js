@@ -28,10 +28,7 @@ var InstructionView = function (container, model) {
 		)
 	});
 	
-	$('#goBackButton').on('click', function() { 
-		container = $('#root');
-		container.load('view/overview_view.html', function() {
-			OverviewView(container, model);
-		})
+	$('#goBackButton').on('click', function() {
+		gotoOverview();
 	});
 }

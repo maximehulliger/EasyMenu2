@@ -1,19 +1,11 @@
 var DishSelectionView = function (container, model) {
 	
-	var filterInput = container.find("#dishFilterInput");
-	var typeInput = container.find("#typeSelectionInput");
 	var selectionTable = container.find("#dishSelectionTable");
 	
-	gotoDetail = function(mealId) {
-		model.setSelectedDish(mealId);
-		container.load('view/dish_confirm_view.html', function() {
-			dishConfirmView(container, model);
-			dishConfirmViewController(container, model);
-		});
-	};
-	
-	// set the guest count in the view
-	function displayDishes(type, filter) {
+	this.update = function() {
+		var filter = $("#dishFilterInput").val();
+		var type = $("#typeSelectionInput").val();
+		
 		selectionTable.find('tbody').children().remove();
 		
 		var dishPerRow = 5;
@@ -25,26 +17,21 @@ var DishSelectionView = function (container, model) {
 			}
 				
 			row.append($('<td>')
-						.attr('align', 'center')
-						.append($('<button>')
-							.attr('onclick', 'gotoDetail('+dish.id+')')
-							.append($('<h2>')
-								.text(dish.name)
-							).append($('<img>')
-								.attr('src', 'images/'+dish.image)
-								.attr('title', dish.name)
-								.text(dish.name)
-							).append($('<hr>')
-							)
-						)
+				.attr('align', 'center')
+				.append($('<button>')
+					.attr('onclick', 'gotoDetail('+dish.id+')')
+					.append($('<h2>')
+						.text(dish.name)
+					).append($('<img>')
+						.attr('src', 'images/'+dish.image)
+						.attr('title', dish.name)
+						.text(dish.name)
+					).append($('<hr>')
 					)
+				)
+			)
 		});
 	}
 	
-	var updateChoice = function() {
-		displayDishes(typeInput.val(), filterInput.val());
-	}
-	filterInput.on('input', updateChoice);
-	typeInput.on('change', updateChoice);
-	updateChoice();
+	this.update();
 }
