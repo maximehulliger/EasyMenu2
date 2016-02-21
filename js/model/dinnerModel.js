@@ -1,15 +1,10 @@
-//DinnerModel Object constructor
 var DinnerModel = function() {
 	var guestCount = 1;
 	var selectedDishId;
 	this.menu = [];
 	this.currency = 'SEK';
 	var listener = [];
-	
  
-	//TODO Lab 2 implement the data structure that will hold number of guest
-	// and selected dinner options for dinner menu
-	
 	this.subscribe = function(obj) {
 		listener.push(obj);
 	}
@@ -30,7 +25,6 @@ var DinnerModel = function() {
 		notifySubscribers();
 	}
 
-	// should return 
 	this.getNumberOfGuests = function() {
 		return guestCount;
 	}
@@ -70,7 +64,6 @@ var DinnerModel = function() {
 		});
 		return ingredients;
 	}
-	
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
@@ -379,5 +372,4 @@ var DinnerModel = function() {
 			}]
 		}
 	];
-
 }

@@ -1,6 +1,7 @@
 var InstructionView = function (container, model) {
 	
 	var intructionTable = container.find("#intructionTable").find('tbody');
+	
 	intructionTable.children().remove();
 	
 	model.menu.forEach( function(dish) {
@@ -26,9 +27,5 @@ var InstructionView = function (container, model) {
 				)
 			)
 		)
-	});
-	
-	$('#goBackButton').on('click', function() {
-		gotoOverview();
 	});
 }

@@ -1,23 +1,12 @@
 var OverviewView = function (container, model) {
-	
-	var selectionTable = container.find("#menuResumeTable");
+	var selectionRow = $("#menuResumeRow");
 	var costTotal = container.find("#costResumeTotal");
 	
-	$("#preparationButton").on('click', function() {
-		gotoInstruction();
-	});
+	while(selectionRow.children().length > 1)
+		selectionRow.children().first().remove();
 	
-	$('#goBackButton').on('click', function() {
-		gotoSelection();
-	});
-	
-	selectionTable.find('tbody').children().remove();
-	
-	row = $('<tr>');
-	selectionTable.find('tbody').append(row);
 	model.menu.forEach( function(dish){
-		
-		row.append($('<td>')
+		selectionRow.prepend($('<td>')
 					.attr('align', 'center')
 					.append($('<h2>')
 						.text(dish.name)
@@ -29,8 +18,6 @@ var OverviewView = function (container, model) {
 					)
 				);
 	});
-	row.append('<td align="left"><br><br><br><br><br><br><br><text>Total:</text><p>'+model.getTotalMenuPrice()
-			+' SEK</p></td>');
 	
-	//costTotal.text(model.getTotalMenuPrice()+' '+model.currency);
+	costTotal.text(model.getTotalMenuPrice()+' '+model.currency);
 };
